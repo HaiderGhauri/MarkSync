@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="bg-[#1E1E2F] text-[#FFD166] max-h-18 w-full bg-blend-darken fixed top-0">
+    <header className="bg-[#1E1E2F]/90 text-[#FFD166] max-h-18 w-full backdrop-blur-xs shadow-lg fixed top-0 z-10">
       <div className="mx-auto flex p-5 px-0 justify-between items-center max-w-[1250px] w-[95%]">
         <div>
             <p className="text-2xl">MarkSync</p>

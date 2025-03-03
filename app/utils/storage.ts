@@ -1,5 +1,16 @@
 import { Bookmark } from "../types";
 
+export const getUser = (): string | null => {
+  if (typeof window === 'undefined') return null;
+  return localStorage.getItem('user');
+};
+
+export const saveUser = (user: string) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('user', user);
+  }
+};
+
 export const saveBookmarks = (bookmarks: Bookmark[]) => {
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 };
