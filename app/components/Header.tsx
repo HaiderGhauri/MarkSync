@@ -9,7 +9,7 @@ export function Header() {
         </div>
         <nav className="md:ml-auto flex flex-wrap items-center text-base gap-4 justify-center">
           <Link href={"/"} className="text-lg hover:font-semibold">Home</Link>
-          <Link href={"/bookmark"} className="text-lg hover:font-semibold">BookMarks</Link>
+          <Link href={"/bookmarks"} className="text-lg hover:font-semibold">BookMarks</Link>
         </nav>
       </div>
     </header>

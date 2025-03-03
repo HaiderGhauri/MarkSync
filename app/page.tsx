@@ -11,10 +11,10 @@ export default function Home() {
     //   </div>
     // </main>
     <main className="pt-18 text-[#FFD166] pb-8">
-      <div className="relative bg-slate-950">
+      <div className="bg-slate-950">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:12px_24px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_20%,#000_80%,transparent_100%)]"></div>
 
-        <section className="max-w-[1250px] mx-auto w-[95%] flex items-center flex-col gap-4 px-4 pt-18 pb-36">
+        <section className=" relative max-w-[1250px] mx-auto w-[95%] flex items-center flex-col gap-4 px-4 pt-18 pb-36">
           <div className="text-center gap-4 flex items-center flex-col relative z-10">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               Never Lose a Link Again Sync with MarkSync!
@@ -24,20 +24,22 @@ export default function Home() {
               No more clutter - just seamless bookmarking!
             </p>
 
-            <Link href={"/bookmark"}>
+            <Link href={"/bookmarks"}>
               <button className="bg-[#FF6B6B] text-[#F5F5F7] font-semibold w-fit px-4 py-1 my-4 rounded-xl text-lg cursor-pointer">
                 Get Started
               </button>
             </Link>
           </div>
 
-          <div>
+          <div className="w-lg h-auto ">
             <Image
               src="/heroimg.jpg"
+              alt="Hero Image"
+              // layout="fill"
+              // objectFit="cover"
               width={500}
               height={500}
-              alt="Hero Image"
-              className="absolute right-[37%] rounded-3xl"
+              className=" rounded-3xl absolute right-[32%]"
             />
           </div>
         </section>
