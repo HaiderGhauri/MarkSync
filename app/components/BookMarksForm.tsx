@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Bookmark } from "../types";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface BookMarkFormProps {
@@ -15,15 +15,11 @@ export function BookMarksForm({ onAdd }: BookMarkFormProps) {
   const [category, setCategory] = useState("Work");
 
   const showToastMessage = (value: string) => {
-    toast.error(value, {
-      position: "top-right",
-    });
+    toast.error(value);
   };
 
   const successMessage = (value: string) => {
-      toast.success(value, {
-        position: "top-right",
-      });
+      toast.success(value)
     };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -66,7 +62,7 @@ export function BookMarksForm({ onAdd }: BookMarkFormProps) {
             maxLength={22}
             placeholder="Enter bookmark title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value.trim())}
           />
         </div>
 
@@ -77,7 +73,7 @@ export function BookMarksForm({ onAdd }: BookMarkFormProps) {
             type="url"
             placeholder="Paste URL here"
             value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={(e) => setUrl(e.target.value.trim())}
           />
         </div>
 
@@ -116,12 +112,12 @@ export function BookMarksForm({ onAdd }: BookMarkFormProps) {
         </div>
 
         <button
-          className="bg-[#FF6B6B] text-[#F5F5F7] font-semibold px-4 py-1 mt-2 rounded-xl text-lg cursor-pointer"
+          className="bg-[#FF6B6B] text-[#F5F5F7] font-semibold px-4 py-1 mt-2 rounded-xl text-lg cursor-pointer hover:bg-[#ff6b6bc7]"
           type="submit"
         >
           Add to Collection
         </button>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       </div>
     </form>
   );

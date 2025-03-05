@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Header";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./contexts/UserContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  weight: "600",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  display: "swap", 
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,12 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-gray-300`}
+        className={`${poppins.className} antialiased bg-slate-950 text-gray-300`}
       >
         <UserProvider>
           <Header />
           {children}
-          <ToastContainer position="top-right" autoClose={2500} />
+          <ToastContainer position="bottom-right" autoClose={2500} />
         </UserProvider>
       </body>
     </html>
