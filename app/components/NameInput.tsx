@@ -1,25 +1,26 @@
 "use client";
 
 import React, { useState } from "react";
-import { saveUser } from "../utils/storage";
 import { useRouter } from "next/navigation";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useUser } from "../contexts/UserContext";
 
-export function NameInput() {
+interface NameInputProps {
+  disabled?: boolean
+}
+
+export function NameInput({ disabled = false }: NameInputProps ) {
   const [name, setName] = useState("");
   const router = useRouter();
+  const {setUser} = useUser();
 
   const showToastMessage = (value: string) => {
-    toast.error(value, {
-      position: "top-right",
-    });
+    toast.error(value);
   };
 
   const successMessage = () => {
-    toast.success(`${name} added`, {
-      position: "top-right",
-    });
+    toast.success(`${name} added`);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,7 +32,8 @@ export function NameInput() {
       setName("");
       return;
     }
-    saveUser(name);
+    setUser(name)
+    setName("")
     successMessage();
     setTimeout(() => {
       router.push("/bookmarks");
@@ -41,22 +43,24 @@ export function NameInput() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex gap-4 justify-center items-center"
+      className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-4"
     >
       <input
         className="text-lg text-[#F5F5F7] border border-gray-500 h-fit py-1 px-2 rounded-xl outline-0"
         type="text"
         placeholder="Enter your name to get started"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value.trim())}
+        disabled={disabled}
       />
       <button
+        disabled={disabled}
         type="submit"
-        className="bg-[#FF6B6B] text-[#F5F5F7] font-semibold w-fit px-4 py-1 my-4 rounded-xl text-lg cursor-pointer"
+        className="bg-[#FF6B6B] text-[#F5F5F7] font-semibold w-fit px-2.5 sm:px-4 py-1 rounded-xl sm:text-lg cursor-pointer hover:bg-[#ff6b6bc7]"
       >
         Get Started
       </button>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </form>
   );
 }

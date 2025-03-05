@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./contexts/UserContext";
 
 const poppins = Poppins({
-  weight: "600",
+  weight: "500",
   subsets: ["latin"],
   display: "swap", 
 })

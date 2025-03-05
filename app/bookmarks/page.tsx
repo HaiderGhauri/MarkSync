@@ -15,12 +15,11 @@ function Bookmark() {
   const { user } = useUser();
   const router = useRouter();
 
-
   useEffect(() => {
     if (!user) {
       router.push("/");
     } else {
-      setBookmarks(getBookmarks())
+      setBookmarks(getBookmarks());
     }
   }, [user, router]);
 
@@ -56,10 +55,10 @@ function Bookmark() {
     <section className="pt-34 pb-8 max-w-[1250px] mx-auto w-[95%]">
       <div>
         <h1 className="text-[#FFD166] text-2xl sm:text-3xl lg:text-4xl font-bold text-center">
-        <ReactTyped 
-                strings={["Your Saved Links, All in One Place"]}
-                typeSpeed={65}
-              />
+          <ReactTyped
+            strings={["Your Saved Links, All in One Place"]}
+            typeSpeed={65}
+          />
         </h1>
 
         <BookMarksForm onAdd={handleAddBookmark} />
@@ -109,7 +108,9 @@ function Bookmark() {
         </div>
 
         <div>
-          <p className="text-[#FFD166] text-lg sm:text-xl lg:text-2xl font-bold text-center"> <span className="capitalize">{user}</span> BookMark&apos;s </p>
+          <p className="text-[#FFD166] text-lg sm:text-xl lg:text-2xl font-bold text-center capitalize">
+            <ReactTyped strings={[`${user} BookMark&apos;s`]} typeSpeed={65} />{" "}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center items-center gap-10 py-4 max-w-[100%]">
